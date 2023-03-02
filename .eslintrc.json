@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "unused-imports"
+  ],
+  "rules": {
+    "no-use-before-define": "off",
+    "no-unused-vars": "off",
+    "class-methods-use-this": "off",
+    "no-shadow": "off",
+    "no-underscore-dangle": "off",
+    "no-nested-ternary": "off",
+    "no-template-curly-in-string": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": "off",
+
+    // "unused-imports/no-unused-imports-ts": 2, // comment this line if you don't wanna auto delete unused imports
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off"
+  }
+}
