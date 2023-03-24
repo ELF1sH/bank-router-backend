@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import router from "./routes/index";
 import cors from 'cors';
+import auth from "./middlewares/auth";
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const port = process.env.PORT;
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded())
+app.use(auth)
 
 app.use('/api', router);
 
