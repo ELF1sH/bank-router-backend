@@ -1,9 +1,9 @@
 import axios, { AxiosError } from "axios";
 
-export const getClient = (req: any, res: any) => {
+export const getEmployee = (req: any, res: any) => {
   const { id } = req.params;
 
-  axios.get(`${process.env.USERS_MS_URL}/clients/${id}`)
+  axios.get(`${process.env.USERS_MS_URL}/employees/${id}`)
     .then((response) => (
       res.status(response.status).send(response.data)
     ))

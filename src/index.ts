@@ -1,21 +1,16 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import router from "./routes/index";
+import cors from 'cors';
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
 
-// app.get('/hello', (req: Request, res: Response) => {
-//   axios.get('https://jsonplaceholder.typicode.com/posts/1')
-//     .then((response) => {
-//       res.send(response.data);
-//     })
-//
-//   // res.send('Express + TypeScript Server');
-// });
-
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded())
 
 app.use('/api', router);
 

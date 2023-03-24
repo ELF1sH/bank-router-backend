@@ -1,7 +1,11 @@
 import { getEmployees } from "./getEmployees";
+import { getEmployee } from "./getEmployee";
 import { createEmployee } from "./createEmployee";
+import { blockEmployee } from "./blockEmployee";
 
 export const employeesController = {
-  getClients: getEmployees,
-  createClient: createEmployee
+  getEmployees,
+  getEmployee,
+  createEmployee,
+  blockEmployee,
 }

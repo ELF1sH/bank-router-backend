@@ -1,9 +1,7 @@
 import axios, { AxiosError } from "axios";
 
-export const getClient = (req: any, res: any) => {
-  const { id } = req.params;
-
-  axios.get(`${process.env.USERS_MS_URL}/clients/${id}`)
+export const createTariff = (req: any, res: any) => {
+  axios.post(`${process.env.CREDITS_MS_URL}/create-tariff`, req.body)
     .then((response) => (
       res.status(response.status).send(response.data)
     ))

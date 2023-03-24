@@ -1,9 +1,9 @@
 import axios, { AxiosError } from "axios";
 
-export const getClient = (req: any, res: any) => {
-  const { id } = req.params;
+export const getOperationsHistory = (req: any, res: any) => {
+  const { id } = req.query;
 
-  axios.get(`${process.env.USERS_MS_URL}/clients/${id}`)
+  axios.get(`${process.env.KERNEL_MS_URL}/operations-history/?id=${id}`)
     .then((response) => (
       res.status(response.status).send(response.data)
     ))

@@ -1,9 +1,9 @@
 import axios, { AxiosError } from "axios";
 
-export const getClient = (req: any, res: any) => {
-  const { id } = req.params;
+export const getCreditAccounts = (req: any, res: any) => {
+  const { ownerId } = req.query;
 
-  axios.get(`${process.env.USERS_MS_URL}/clients/${id}`)
+  axios.get(`${process.env.CREDITS_MS_URL}/credit-accounts/?ownerId=${ownerId}`)
     .then((response) => (
       res.status(response.status).send(response.data)
     ))

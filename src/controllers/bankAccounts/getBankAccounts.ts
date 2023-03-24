@@ -1,9 +1,9 @@
 import axios, { AxiosError } from "axios";
 
-export const getClient = (req: any, res: any) => {
-  const { id } = req.params;
+export const getBankAccounts = (req: any, res: any) => {
+  const { ownerId } = req.query;
 
-  axios.get(`${process.env.USERS_MS_URL}/clients/${id}`)
+  axios.get(`${process.env.KERNEL_MS_URL}/bank-accounts/?ownerId=${ownerId}`)
     .then((response) => (
       res.status(response.status).send(response.data)
     ))

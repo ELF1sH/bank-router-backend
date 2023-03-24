@@ -1,7 +1,11 @@
-import axios from "axios";
-import { Request } from "express";
+import axios, { AxiosError } from "axios";
 
-export const getClients = (req: Request) => {
-  return axios.get('http://localhost:8000/api/clients/all')
-    .then((response) => response);
-}
+export const getClients = (req: any, res: any) => {
+  axios.get(`${process.env.USERS_MS_URL}/clients/all`)
+    .then((response) => (
+      res.status(response.status).send(response.data)
+    ))
+    .catch((e: AxiosError) => (
+      res.status(e.response?.status).send(e.response?.data)
+    ));
+};
