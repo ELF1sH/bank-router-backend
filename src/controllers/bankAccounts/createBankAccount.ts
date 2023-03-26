@@ -1,7 +1,11 @@
 import axios, { AxiosError } from "axios";
 
 export const createBankAccount = (req: any, res: any) => {
-  axios.post(`${process.env.KERNEL_MS_URL}/open-bank-account`, req.body)
+  const accessToken = req.headers['authorization'];
+
+  axios.post(`${process.env.KERNEL_MS_URL}/open-bank-account`, req.body, {
+    headers: { Authorization: accessToken }
+  })
     .then((response) => (
       res.status(response.status).send(response.data)
     ))

@@ -1,12 +1,20 @@
-const auth = (req: any, res: any, next: any) => {
-  // res.status(401).send('Error');
+import axios, { AxiosError } from "axios";
+
+export const auth = async (req: any, res: any, next: any) => {
   const accessToken = req.headers['authorization'];
 
-  // TODO: need to be passed into authorization service
-  // TODO: verify that token exists in db and that it hasn't expired
-  console.log(accessToken);
+  try {
+    const result = await axios.post(`${process.env.AUTHENTICATION_MS_URL}/isAuthenticated`, {}, {
+      headers: {
+        Authorization: accessToken,
+      },
+    });
 
-  next();
+    if (result.status === 200) {
+      next();
+    }
+  } catch (e) {
+    const error = e as AxiosError;
+    res.status(error.response!.status).send(error.response!.data);
+  }
 }
-
-export default auth;

@@ -2,8 +2,11 @@ import axios, { AxiosError } from "axios";
 
 export const getOperationsHistory = (req: any, res: any) => {
   const { id } = req.query;
+  const accessToken = req.headers['authorization'];
 
-  axios.get(`${process.env.KERNEL_MS_URL}/operations-history/?id=${id}`)
+  axios.get(`${process.env.KERNEL_MS_URL}/operations-history/?id=${id}`, {
+    headers: { Authorization: accessToken }
+  })
     .then((response) => (
       res.status(response.status).send(response.data)
     ))
