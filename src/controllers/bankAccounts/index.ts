@@ -5,6 +5,7 @@ import {createBankAccount} from "./createBankAccount";
 import {closeBankAccount} from "./closeBankAccount";
 import {fillBankAccount} from "./fillBankAccount";
 import {withdrawBankAccount} from "./withdrawBankAccount";
+import {sendMoney} from "./sendMoney";
 
 export const bankAccountsController = {
     getBankAccounts,
@@ -13,5 +14,6 @@ export const bankAccountsController = {
     createBankAccount,
     closeBankAccount,
     fillBankAccount,
-    withdrawBankAccount
+    withdrawBankAccount,
+    sendMoney,
 };

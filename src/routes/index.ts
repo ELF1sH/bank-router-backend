@@ -27,6 +27,7 @@ router.post('/create-bank-account', auth, bankAccountsController.createBankAccou
 router.post('/bank-accounts/:id/close', auth, bankAccountsController.closeBankAccount)
 router.post('/fill-bank-account', auth, bankAccountsController.fillBankAccount)
 router.post('/withdraw-bank-account', auth, bankAccountsController.withdrawBankAccount)
+router.post('/send-money', auth, bankAccountsController.sendMoney)
 
 router.get('/credit-accounts', auth, creditsController.getCreditAccounts)
 router.get('/credit-accounts/:id', auth, creditsController.getCreditAccount)
